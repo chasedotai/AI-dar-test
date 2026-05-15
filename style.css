@@ -1,0 +1,474 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px 64px;
+}
+
+#app {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.btn:hover  { transform: scale(1.03); }
+.btn:active { transform: scale(0.98); }
+
+.btn-start {
+  background: #6c63ff;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px 40px;
+  box-shadow: 0 4px 14px rgba(108,99,255,0.35);
+}
+.btn-start:hover { box-shadow: 0 6px 18px rgba(108,99,255,0.45); }
+
+.btn-human {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 2px solid #a5d6a7;
+  flex: 1;
+}
+.btn-human:hover { background: #c8e6c9; }
+
+.btn-ai {
+  background: #fce4ec;
+  color: #c62828;
+  border: 2px solid #f48fb1;
+  flex: 1;
+}
+.btn-ai:hover { background: #f8bbd0; }
+
+.btn-next {
+  background: #fff;
+  color: #333;
+  border: 2px solid #ddd;
+  flex: 1;
+}
+.btn-next:hover { background: #f5f5f5; }
+
+.btn-score {
+  background: #6c63ff;
+  color: #fff;
+  flex: 1;
+  box-shadow: 0 2px 8px rgba(108,99,255,0.3);
+}
+.btn-score:hover { box-shadow: 0 4px 12px rgba(108,99,255,0.4); }
+
+/* ── Intro ────────────────────────────────────────────────────────────────── */
+
+.intro {
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px 40px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+.intro-icon { font-size: 56px; margin-bottom: 16px; }
+
+.intro h1 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.intro-desc {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.intro-rules {
+  list-style: none;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intro-rules li {
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #444;
+  text-align: left;
+}
+
+/* ── Game ─────────────────────────────────────────────────────────────────── */
+
+.game { display: flex; flex-direction: column; gap: 16px; }
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.progress-track {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #6c63ff;
+  border-radius: 99px;
+  transition: width 0.35s ease;
+  min-width: 4px;
+}
+
+.type-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+  align-self: flex-start;
+}
+
+.type-badge--tweet    { background: #e8f4fd; color: #1da1f2; }
+.type-badge--linkedin { background: #e8f0fb; color: #0a66c2; }
+.type-badge--blog     { background: #f5f5f5; color: #555;    }
+
+/* Card feedback highlight wrapper */
+.card-wrap { border-radius: 12px; transition: box-shadow 0.2s; }
+.card-wrap.card-correct { box-shadow: 0 0 0 3px #4caf50; }
+.card-wrap.card-wrong   { box-shadow: 0 0 0 3px #f44336; }
+
+/* ── Cards: shared ────────────────────────────────────────────────────────── */
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+/* ── Tweet card ───────────────────────────────────────────────────────────── */
+
+.card--tweet {
+  border-left: 4px solid #1da1f2;
+  max-width: 500px;
+}
+
+.tweet-header {
+  background: #15202b;
+  padding: 8px 16px;
+  font-size: 18px;
+}
+
+.tweet-body { padding: 16px; }
+
+.tweet-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tweet-avatar {
+  font-size: 28px;
+  background: #e7e7e7;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.tweet-author-block { display: flex; flex-direction: column; }
+
+.tweet-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #14171a;
+}
+
+.tweet-handle {
+  font-size: 13px;
+  color: #8899a6;
+}
+
+.tweet-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #14171a;
+  margin-bottom: 14px;
+}
+
+.tweet-actions {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #8899a6;
+}
+
+/* ── LinkedIn card ────────────────────────────────────────────────────────── */
+
+.card--linkedin {
+  border-top: 4px solid #0a66c2;
+  border: 1px solid #e0e0e0;
+  border-top: 4px solid #0a66c2;
+}
+
+.linkedin-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 0;
+}
+
+.li-avatar {
+  font-size: 30px;
+  background: #e8f0fb;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.li-author-block { display: flex; flex-direction: column; }
+
+.li-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.li-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+
+.li-subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.li-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #1a1a1a;
+  padding: 12px 16px;
+}
+
+.li-actions {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #666;
+  padding: 10px 16px 14px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ── Blog card ────────────────────────────────────────────────────────────── */
+
+.card--blog {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.blog-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  background: #f0f0f0;
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin: 16px 16px 0;
+}
+
+.blog-byline {
+  font-style: italic;
+  font-size: 13px;
+  color: #888;
+  padding: 6px 16px 0;
+}
+
+.blog-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.78;
+  color: #1a1a1a;
+  padding: 12px 24px 24px;
+  border-left: 2px solid #e0e0e0;
+  margin: 10px 16px 16px;
+}
+
+/* ── Feedback ─────────────────────────────────────────────────────────────── */
+
+.feedback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+}
+
+.feedback--correct { background: #e8f5e9; color: #2e7d32; }
+.feedback--wrong   { background: #fce4ec; color: #c62828; }
+
+.feedback-icon { font-size: 20px; font-weight: 700; }
+
+/* ── Vote / Next actions ──────────────────────────────────────────────────── */
+
+.vote-actions, .next-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ── Results ──────────────────────────────────────────────────────────────── */
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.results-top {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+.tier-emoji { font-size: 52px; margin-bottom: 8px; }
+
+.big-pct {
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #6c63ff;
+}
+
+.tier-label {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 6px;
+  color: #222;
+}
+
+.results-sub {
+  margin-top: 10px;
+  color: #666;
+  font-size: 15px;
+}
+
+.stat-cards {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.stat-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.stat-type {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.stat-fraction {
+  font-size: 20px;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.stat-nodata {
+  font-size: 13px;
+  color: #bbb;
+  margin-top: 8px;
+}
+
+.mini-track {
+  height: 4px;
+  background: #eee;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.mini-fill {
+  height: 100%;
+  background: #6c63ff;
+  border-radius: 99px;
+  min-width: 3px;
+}
+
+.stat-pct {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6c63ff;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 500px) {
+  .intro { padding: 32px 20px; }
+  .big-pct { font-size: 60px; }
+  .stat-cards { flex-direction: column; }
+  .vote-actions, .next-actions { flex-direction: column; }
+  .card--tweet { max-width: 100%; }
+}
