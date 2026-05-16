@@ -1,3 +1,6 @@
+const SUPABASE_URL      = "https://siybrsxreftmbbhxujmp.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_0Ebp443kgM-sjp0Q5WgLBg_HBVlcCEg";
+
 const state = {
   screen: "intro",
   deck:   [],
@@ -232,12 +235,35 @@ function computeScore() {
   return { total: votes.length, correct, accuracy, byType, tier, errors };
 }
 
+const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function submitScore(s) {
+  if (SUPABASE_URL.includes("YOUR_")) return;
+  const { error } = await db.from("game_results").insert({
+    total_votes:      s.total,
+    correct:          s.correct,
+    accuracy:         Math.round(s.accuracy * 100) / 100,
+    missed_ai:        s.errors.missedAI,
+    false_ai:         s.errors.falseAI,
+    missed_ai_pct:    s.errors.missedAIPct,
+    false_ai_pct:     s.errors.falseAIPct,
+    tweet_total:      s.byType.tweet.total,
+    tweet_correct:    s.byType.tweet.correct,
+    linkedin_total:   s.byType.linkedin.total,
+    linkedin_correct: s.byType.linkedin.correct,
+    blog_total:       s.byType.blog.total,
+    blog_correct:     s.byType.blog.correct,
+  });
+  if (error) {}
+}
+
 function typeLabel(t) {
   return { tweet: "Tweets", linkedin: "LinkedIn", blog: "Blog Posts" }[t];
 }
 
 function renderResults() {
   const s = computeScore();
+  submitScore(s);
   const pct = Math.round(s.accuracy);
 
   const typeCards = ["tweet", "linkedin", "blog"].map(t => {
