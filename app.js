@@ -218,7 +218,18 @@ function computeScore() {
     };
   }
 
-  return { total: votes.length, correct, accuracy, byType, tier };
+  const wrong = votes.filter(v => !v.correct);
+  const missedAI  = wrong.filter(v => v.isAI);   // AI but guessed Human
+  const falseAI   = wrong.filter(v => !v.isAI);  // Human but guessed AI
+  const errors = {
+    total:       wrong.length,
+    missedAI:    missedAI.length,
+    falseAI:     falseAI.length,
+    missedAIPct: wrong.length > 0 ? Math.round((missedAI.length / wrong.length) * 100) : 0,
+    falseAIPct:  wrong.length > 0 ? Math.round((falseAI.length  / wrong.length) * 100) : 0,
+  };
+
+  return { total: votes.length, correct, accuracy, byType, tier, errors };
 }
 
 function typeLabel(t) {
@@ -246,6 +257,30 @@ function renderResults() {
       </div>`;
   }).join("");
 
+  const e = s.errors;
+  const errorsHTML = e.total === 0
+    ? `<div class="error-breakdown"><p class="error-perfect">No wrong answers. Suspicious.</p></div>`
+    : `<div class="error-breakdown">
+        <h3 class="error-title">Where you went wrong</h3>
+        <div class="error-rows">
+          <div class="error-row">
+            <span class="error-label">AI writing you thought was human</span>
+            <span class="error-bar-wrap">
+              <span class="error-bar error-bar--missed" style="width:${e.missedAIPct}%"></span>
+            </span>
+            <span class="error-pct">${e.missedAIPct}%</span>
+          </div>
+          <div class="error-row">
+            <span class="error-label">Human writing you thought was AI</span>
+            <span class="error-bar-wrap">
+              <span class="error-bar error-bar--false" style="width:${e.falseAIPct}%"></span>
+            </span>
+            <span class="error-pct">${e.falseAIPct}%</span>
+          </div>
+        </div>
+        <p class="error-note">(as % of your ${e.total} wrong answer${e.total === 1 ? "" : "s"})</p>
+      </div>`;
+
   document.getElementById("app").innerHTML = `
     <div class="results">
       <div class="results-top">
@@ -255,6 +290,7 @@ function renderResults() {
         <p class="results-sub">You got <strong>${s.correct} of ${s.total}</strong> correct.</p>
       </div>
       <div class="stat-cards">${typeCards}</div>
+      ${errorsHTML}
       <button id="btn-again" class="btn btn-start">Play Again</button>
     </div>
   `;

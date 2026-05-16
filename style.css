@@ -374,6 +374,74 @@ body {
   color: #6c63ff;
 }
 
+/* ── Error breakdown ──────────────────────────────────────────────────────── */
+
+.error-breakdown {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.error-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+.error-rows { display: flex; flex-direction: column; gap: 10px; }
+
+.error-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 36px;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-label { font-size: 14px; color: #333; }
+
+.error-bar-wrap {
+  background: #f0f0f0;
+  border-radius: 99px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.error-bar {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  min-width: 3px;
+  transition: width 0.4s ease;
+}
+
+.error-bar--missed { background: #f44336; }
+.error-bar--false  { background: #ff9800; }
+
+.error-pct {
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+  text-align: right;
+}
+
+.error-note {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.error-perfect {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+}
+
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 
 @media (max-width: 500px) {
@@ -382,4 +450,5 @@ body {
   .stat-cards { flex-direction: column; }
   .vote-actions, .next-actions { flex-direction: column; }
   .card--tweet { max-width: 100%; }
+  .error-row { grid-template-columns: 1fr 80px 32px; }
 }
