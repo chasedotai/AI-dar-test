@@ -140,39 +140,39 @@ const SAMPLES = [
     text: "Burnout isn't a badge of honor. It's a warning sign.\n\nI ignored it for two years. My body finally said enough.\n\nHere's what I wish I had known:\n\n🔹 Rest is productive\n🔹 Boundaries are a business strategy\n🔹 Saying no is leadership\n🔹 Your health IS your wealth\n\nTake care of yourself first. Everything else follows.\n\nWho needed to hear this today? Tag them. ❤️"
   },
 
-  // ── LINKEDIN: HUMAN ─────────────────────────────────────────────────────────
+  // ── LINKEDIN: ALL AI ────────────────────────────────────────────────────────
   {
-    id: 28, type: "linkedin", isAI: false,
+    id: 28, type: "linkedin", isAI: true,
     author: "Carlos Mendez | Infrastructure Eng", avatar: "🔧",
     text: "We had a 4-hour outage last Tuesday. The postmortem was genuinely uncomfortable — turns out two separate on-call rotations each assumed the other team was handling alerts for the shared service. Writing up the blameless report took longer than the fix. The hard part isn't the technical fix, it's agreeing on what the system boundary actually is."
   },
   {
-    id: 29, type: "linkedin", isAI: false,
+    id: 29, type: "linkedin", isAI: true,
     author: "Tamsin Okafor | UX Research", avatar: "🔍",
     text: "Spent three months advocating for a user research round before we shipped a major redesign. Got pushed back at every sprint review — 'we don't have time.' We shipped. Within six weeks, support tickets were up 40% for the exact flows we hadn't tested. Now we have time for research AND a redesign. Funny how that works."
   },
   {
-    id: 30, type: "linkedin", isAI: false,
+    id: 30, type: "linkedin", isAI: true,
     author: "Ben Hargrove | Principal Engineer", avatar: "🛠️",
     text: "Counterintuitive thing I've learned after 12 years: the engineers who are hardest to replace aren't the ones who write the most code. They're the ones who remember why a decision was made three years ago and can explain it to someone joining today. We underinvest massively in institutional memory."
   },
   {
-    id: 31, type: "linkedin", isAI: false,
+    id: 31, type: "linkedin", isAI: true,
     author: "Linnea Bjork | Product Manager", avatar: "📋",
     text: "Just wrapped up a product review where I had to kill a feature I personally championed for two quarters. The data was clear. It was a bad feeling and the right call. I'm writing this partly to remind myself that being willing to be wrong in public is actually the job, not a failure mode."
   },
   {
-    id: 32, type: "linkedin", isAI: false,
+    id: 32, type: "linkedin", isAI: true,
     author: "Rajiv Patel | Staff Data Scientist", avatar: "📊",
     text: "The most useful thing I do for junior data scientists on my team isn't reviewing their models. It's helping them write emails explaining the limitations of their models to stakeholders who don't want to hear about limitations. That skill is not taught anywhere and it's more than half the job."
   },
   {
-    id: 33, type: "linkedin", isAI: false,
+    id: 33, type: "linkedin", isAI: true,
     author: "Miriam Castillo | Engineering Manager", avatar: "👷",
     text: "Honest reflection after switching from IC to manager: I was not prepared for how much of the job is just absorbing bad news before it gets to my team and figuring out what's actually signal vs. what's noise from leadership. Nobody wrote that in the job description."
   },
   {
-    id: 34, type: "linkedin", isAI: false,
+    id: 34, type: "linkedin", isAI: true,
     author: "Theo Winslow | DevOps Lead", avatar: "⚙️",
     text: "We finally retired a cron job today that had been running since 2011. No one knew what it did. We were all too scared to turn it off. We turned it off six months ago in staging, nothing broke, turned it off in prod last week, nothing broke. It generated a CSV that was emailed to an address that no longer exists. 13 years."
   },
