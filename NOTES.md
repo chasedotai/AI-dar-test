@@ -24,9 +24,23 @@ A static browser game (`index.html` + `style.css` + `data.js` + `app.js`) where 
 ### Blog excerpts — AI samples (ids 35–41)
 These were written by Claude to exhibit stereotypical AI patterns (em-dash bullets, "dive deep", "game-changing", rhetorical questions, etc.). Genuinely AI-generated, so labels are accurate.
 
-### Tweets — NEEDS REAL CONTENT
-- IDs 1–10: AI-generated (accurate labels, Claude wrote these to sound like AI)
-- IDs 11–20: ⚠️ Still Claude-written "human-sounding" tweets — NOT verified human
+### Tweets — DONE ✅
+- IDs 1–10: AI-generated (accurate labels)
+- IDs 11–20, 51–53: ✅ All real human tweets
+  - 11: Ezra Klein (Sapolsky/poverty, 2019)
+  - 12: unknown (VC bubble)
+  - 13: Miles Kimball (building codes, 2015)
+  - 14: unknown (Quora/stupid questions)
+  - 15: @visakanv (knowledge graph, 2015)
+  - 16: @paulg (Twitter predecessor, 2015)
+  - 17: unknown (best possible interpretation)
+  - 18: @michaelcurzi (ideology/übermensch, 2019)
+  - 19: unknown (PayPal/rich people)
+  - 20: Garry Tan (cold emails/startup ideas, 2019)
+  - 51: @BLUNDERBUSSTED (2020 vision pun, 2019)
+  - 52: @BLUNDERBUSSTED (art quote, 2019)
+  - 53: @Malcolm_Ocean (Coherence Therapy, 2019)
+- Source: tweets_export.csv (Dec 31 2019 export) + user-pasted tweets
 
 ### LinkedIn posts — NEEDS REAL CONTENT
 - IDs 21–27: AI-generated (accurate labels)

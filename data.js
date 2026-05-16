@@ -54,53 +54,53 @@ const SAMPLES = [
   // ── TWEETS: HUMAN ───────────────────────────────────────────────────────────
   {
     id: 11, type: "tweet", isAI: false,
-    author: "@marzipan_dev", avatar: "🧁",
-    text: "my PR has been open for 11 days and every time someone comments 'looks good, minor nit' and then adds a 40-line refactor suggestion"
+    author: "@ezraklein", avatar: "🎙️",
+    text: "Robert Sapolsky on the way the toxic intersection of stress and poverty changes people's brains and harms their life chances. If I could make every policymaker listen to just one episode of my podcast, it'd be this one."
   },
   {
     id: 12, type: "tweet", isAI: false,
-    author: "@kelseywanders", avatar: "🗺️",
-    text: "flew into the wrong Portland once (Maine, not Oregon) and didn't realize until I was already at baggage claim. anyway that's why I always double-check now"
+    author: "unknown", avatar: "📈",
+    text: "This could be perceived as confirming late stage VC is a bubble and public markets are not. Very different from 99"
   },
   {
     id: 13, type: "tweet", isAI: false,
-    author: "@dariajokes", avatar: "🐸",
-    text: "my coworker just said 'we should move fast and break things' about a healthcare application and I had to go for a very long walk"
+    author: "@mileskimball", avatar: "🏛️",
+    text: "We need building codes but we also need principles to keep building codes from being used to keep down construction."
   },
   {
     id: 14, type: "tweet", isAI: false,
-    author: "@thebreadmonger", avatar: "🍞",
-    text: "tried to explain sourdough starter to my dad and he looked at me like I was describing a hostage situation which honestly is accurate"
+    author: "unknown", avatar: "💬",
+    text: "I think the (unfortunate) great dilution of Quora is proof that there really are such things as stupid questions."
   },
   {
     id: 15, type: "tweet", isAI: false,
-    author: "@heliozygote", avatar: "🌞",
-    text: "the specific exhaustion of attending a meeting that should have been an email that was responding to a slack that was summarizing a doc that no one read"
+    author: "@visakanv", avatar: "🕸️",
+    text: "The next level is just a more intuitive person-person knowledge graph that remove steps between you and information"
   },
   {
     id: 16, type: "tweet", isAI: false,
-    author: "@plinko_ceo", avatar: "🎰",
-    text: "hot take: standup meetings are for managers not for developers. change my mind (you can't)"
+    author: "@paulg", avatar: "💡",
+    text: "Twitter feels like the predecessor of something. There is an as-yet unstarted startup adjacent to it."
   },
   {
     id: 17, type: "tweet", isAI: false,
-    author: "@annaoftheswamp", avatar: "🌿",
-    text: "opened a 'quick question' slack message from my PM and it was 4 paragraphs and a loom video. logging off"
+    author: "unknown", avatar: "💬",
+    text: "What about the best possible interpretation? I'm guessing they simply don't relate to the pressures faced by those truly overwhelmed w/ info"
   },
   {
     id: 18, type: "tweet", isAI: false,
-    author: "@quantumtoaster", avatar: "🍞",
-    text: "nothing will humble you like googling a bug for 2 hours and finding the solution in a forum post from 2009 where the answer is 'nevermind fixed it'"
+    author: "@michaelcurzi", avatar: "📖",
+    text: "For a given ideology, you want to ask: what kind of person is this trying to turn me into? A Christian saint? A world-leaving Buddhist? A Randian hero? An übermensch? These are different aims. Idealized visions, likely only partially instantiated by the visionaries."
   },
   {
     id: 19, type: "tweet", isAI: false,
-    author: "@felix_types", avatar: "⌨️",
-    text: "interviewer: where do you see yourself in 5 years\nme: not doing behavioral interviews I can tell you that much"
+    author: "unknown", avatar: "💬",
+    text: "rich people don't always start billion dollar cos, so even if true there's still Something About PayPal"
   },
   {
     id: 20, type: "tweet", isAI: false,
-    author: "@notarobot_probably", avatar: "🤷",
-    text: "love when a recipe says 'quick and easy, done in 15 minutes' and step 1 is 'the day before, marinate overnight'"
+    author: "@garrytan", avatar: "💼",
+    text: "This was mainly in response to a glut of cold emails I'm getting from people who are really sacrificing their lives to ideas that I've seen fail 100 other times!\n\n(And I don't even know the right thing to do— is it tell them not to work on it? I might be wrong.)"
   },
 
   // ── LINKEDIN: AI ────────────────────────────────────────────────────────────
@@ -259,5 +259,22 @@ const SAMPLES = [
     id: 50, type: "blog", isAI: false,
     author: "Neal Stephenson, WIRED (1996)", avatar: "🌐",
     text: "In which the hacker tourist ventures forth across the wide and wondrous meatspace of three continents, acquainting himself with the customs and dialects of the exotic Manhole Villagers of Thailand, the U-Turn Tunnelers of the Nile Delta, the Cable Nomads of Lantao Island, the Slack Control Wizards of Chelmsford, the Subterranean Ex-Telegraphers of Cornwall, and other previously unknown and unchronicled folk; also, biographical sketches of the two long-dead Supreme Ninja Hacker Mage Lords of global telecommunications, and other material pertaining to the business and technology of Undersea Fiber-Optic Cables, as well as an account of the laying of the longest wire on Earth, which should not be without interest to the readers of WIRED."
+  },
+
+  // ── TWEETS: HUMAN (bonus from CSV export, Dec 31 2019) ──────────────────────
+  {
+    id: 51, type: "tweet", isAI: false,
+    author: "@BLUNDERBUSSTED", avatar: "👓",
+    text: "I had a 2020 vision\nIt was perfect, but I'm still jealous of the seers with cool glasses"
+  },
+  {
+    id: 52, type: "tweet", isAI: false,
+    author: "@BLUNDERBUSSTED", avatar: "🎨",
+    text: "If art did not exist, it would be necessary to create it."
+  },
+  {
+    id: 53, type: "tweet", isAI: false,
+    author: "@Malcolm_Ocean", avatar: "🧠",
+    text: "You might find that part by saying out loud: \"If my upset is really about [current situation], then...\" (Coherence Therapy style — complete this sentence multiple times, no filter)\n\nor \"it's not okay to be upset about this\" (BioEmotive style — attune for resonance in body)"
   },
 ];

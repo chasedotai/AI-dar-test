@@ -63,8 +63,6 @@ function escapeHTML(str) {
 
 function buildCard(sample) {
   const text = escapeHTML(sample.text).replace(/\n/g, "<br>");
-  const author = escapeHTML(sample.author);
-  const avatar = sample.avatar;
 
   if (sample.type === "tweet") {
     return `
@@ -73,13 +71,6 @@ function buildCard(sample) {
           <span class="tweet-bird">🐦</span>
         </div>
         <div class="tweet-body">
-          <div class="tweet-meta">
-            <span class="tweet-avatar">${avatar}</span>
-            <div class="tweet-author-block">
-              <span class="tweet-name">${author.replace(/^@/, "")}</span>
-              <span class="tweet-handle">${author.startsWith("@") ? author : "@" + author.toLowerCase().replace(/\s+/g, "")}</span>
-            </div>
-          </div>
           <p class="tweet-text">${text}</p>
           <div class="tweet-actions">
             <span>💬 Reply</span><span>🔁 Repost</span><span>❤️ Like</span>
@@ -91,13 +82,6 @@ function buildCard(sample) {
   if (sample.type === "linkedin") {
     return `
       <div class="card card--linkedin">
-        <div class="linkedin-header">
-          <span class="li-avatar">${avatar}</span>
-          <div class="li-author-block">
-            <span class="li-name">${author} <span class="li-badge">1st</span></span>
-            <span class="li-subtitle">Sharing insights • LinkedIn</span>
-          </div>
-        </div>
         <p class="li-text">${text}</p>
         <div class="li-actions">
           <span>👍 Like</span><span>💡 Insightful</span><span>♻️ Repost</span>
@@ -109,7 +93,6 @@ function buildCard(sample) {
   return `
     <div class="card card--blog">
       <div class="blog-badge">Blog Excerpt</div>
-      <p class="blog-byline">By ${author}</p>
       <p class="blog-text">${text}</p>
     </div>`;
 }
